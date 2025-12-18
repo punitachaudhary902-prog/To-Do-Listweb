@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST-About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8b8b94 0%, #818785 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: hsla(0, 11%, 96%, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3051e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #da542b;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .about-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .about-section h1 {
+            font-size: 2.5rem;
+            color: #1a1313;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 1.8rem;
+            color: #4e5ca3;
+            margin: 30px 0 15px 0;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            color: #a1695f;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mission-box {
+            background: linear-gradient(135deg, #070708 0%, #0b1a13 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .mission-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .creator-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .creator-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .image-placeholder {
+            background: #e9ecef;
+            border: 2px dashed #adb5bd;
+            border-radius: 10px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .image-placeholder:hover {
+            background: #dee2e6;
+            border-color: #667eea;
+        }
+
+        .tech-stack {
+            background: linear-gradient(135deg, #040404 0%, #020202 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .tech-stack h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .about-section {
+                padding: 30px 20px;
+            }
+
+            .about-section h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">TO DO LIST</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="todo-app.html">Create</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="about-section">
+            <h1>About TO DO List</h1>
+            
+            <p>This website is created by coding with Punita during  Visual Coding. You can use this app and store your todos efficiently with a beautiful, modern interface.</p>
+
+            <div class="creator-section">
+                <h3>👩💻 Created By</h3>
+                <p><strong>Punita</strong> - Built with  Visual Coding</p>
+                <div class="tech-stack">
+                    <h4>🛠️ Built With</h4>
+                    <p>HTML5 • CSS3 • JavaScript • Visual Coding</p>
+                </div>
+            </div>
+
+            <h2>📸 App Screenshots</h2>
+            <div class="image-gallery">
+                <div class="image-placeholder">
+                    📱<br>Mobile View<br>Screenshot
+                </div>
+                <div class="image-placeholder">
+                    💻<br>Desktop View<br>Screenshot
+                </div>
+                <div class="image-placeholder">
+                    ✅<br>Task Management<br>Demo
+                </div>
+                <div class="image-placeholder">
+                    📊<br>Statistics View<br>Screenshot
+                </div>
+            </div>
+
+            <h2>✨ Key Features</h2>
+            <ul class="features-list">
+                <li>
+                    <span class="feature-icon">📝</span>
+                    <span>Easy task creation and management</span>
+                </li>
+                <li>
+                    <span class="feature-icon">✅</span>
+                    <span>Mark tasks as complete with satisfying animations</span>
+                </li>
+                <li>
+                    <span class="feature-icon">💾</span>
+                    <span>Local storage - your todos are saved automatically</span>
+                </li>
+                <li>
+                    <span class="feature-icon">📊</span>
+                    <span>Real-time statistics to track your progress</span>
+                </li>
+                <li>
+                    <span class="feature-icon">🎨</span>
+                    <span>Beautiful, modern design that's easy on the eyes</span>
+                </li>
+                <li>
+                    <span class="feature-icon">📱</span>
+                    <span>Fully responsive - works on all devices</span>
+                </li>
+            </ul>
+
+            <div class="mission-box">
+                <h3>🎯 How to Use</h3>
+                <p>Simply add your tasks, click to mark them complete, and use the clear button to remove finished items. Your todos are automatically saved in your browser!</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
